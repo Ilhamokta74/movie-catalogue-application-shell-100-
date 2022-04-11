@@ -1,7 +1,9 @@
 import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator';
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
+import * as TestFactories from './helpers/testFactories';
 
 describe('Liking A Movie', () => {
+  // supaya selalu dijalankan untuk tiap tes yang kita buat
   const addLikeButtonContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
@@ -10,6 +12,7 @@ describe('Liking A Movie', () => {
     addLikeButtonContainer();
   });
 
+  // untuk widget like
   it('should show the like button when the movie has not been liked before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -21,6 +24,7 @@ describe('Liking A Movie', () => {
     expect(document.querySelector('[aria-label="like this movie"]')).toBeTruthy();
   });
 
+  // untuk widget unlike
   it('should not show the unlike button when the movie has not been liked before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -32,6 +36,7 @@ describe('Liking A Movie', () => {
     expect(document.querySelector('[aria-label="unlike this movie"]')).toBeFalsy();
   });
 
+  // ketika user menekan widget dan film tersimpan di daftar film yang disukai.
   it('should be able to like the movie', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -48,6 +53,7 @@ describe('Liking A Movie', () => {
     FavoriteMovieIdb.deleteMovie(1);
   });
 
+  // Ternyata film sudah disukai.
   it('should not add a movie again when its already liked', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -66,8 +72,7 @@ describe('Liking A Movie', () => {
     FavoriteMovieIdb.deleteMovie(1);
   });
 
-  // menggunakan metode xit, bukan it
-  xit('should not add a movie when it has no id', async () => {
+  it('should not add a movie when it has no id', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       movie: {},
