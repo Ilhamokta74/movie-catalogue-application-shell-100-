@@ -1,0 +1,20 @@
+Setelah mengabstrasikan pembuatan LikeButtonInitator, sekarang kita 
+bisa dengan mudah mengubah namanya menjadi LikeButtonPresenter. 
+Kita perlu mengubah di berkas like-button-initiator.js dan testFactories.js.
+
+Agar lebih lengkap, kita ubah juga berkas like-button-initiator.js 
+menjadi like-button-presenter.js. Bila perubahan ini dilakukan, 
+maka kita juga perlu mengubahnya di src/scripts/views/pages/detail.js.
+
+LikeButtonInitator => LikeButtonPresenter (berada di file like-button-initiator.js dan testFactories.js.)
+berkas like-button-initiator.js => like-button-presenter.js (di file detail.js yang berada di src/scripts/views/pages/detail.js)
+
+------------------------------------------------------------------------------------------------------------------------
+Metode createLikeButtonTemplate bisa kita ubah menjadi 
+createLikeMovieButtonTemplate agar mirip dengan skenario Liking A Movie. 
+Kemudian kita ubah createLikedButtonTemplate ubah menjadi 
+createUnlikeMovieButtonTemplate agar mirip dengan skenario Unliking A Movie.
+
+createLikeButtonTemplate => createLikeMovieButtonTemplate (berada di file template-creator.js dan like-button-presenter.js)
+createLikedButtonTemplate => createUnlikeMovieButtonTemplate (berada di file template-creator.js dan like-button-presenter.js)
+
