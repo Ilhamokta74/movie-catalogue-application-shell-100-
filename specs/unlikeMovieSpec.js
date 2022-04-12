@@ -18,18 +18,15 @@ describe('Unliking A Movie', () => {
   it('should display unlike widget when the movie has been liked', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
-    expect(document.querySelector('[aria-label="unlike this movie"]'))
-      .toBeTruthy();
+    expect(document.querySelector('[aria-label="unlike this movie"]')).toBeTruthy();
   });
 
   it('should not display like widget when the movie has been liked', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
-    expect(document.querySelector('[aria-label="like this movie"]'))
-      .toBeFalsy();
+    expect(document.querySelector('[aria-label="like this movie"]')).toBeFalsy();
   });
 
-  // Untuk menguji film dihapus dari daftar film disukai ketika widget-nya ditekan
   it('should be able to remove liked movie from the list', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
@@ -38,7 +35,6 @@ describe('Unliking A Movie', () => {
     expect(await FavoriteMovieIdb.getAllMovies()).toEqual([]);
   });
 
-  // membatalkan film yang disukai ketika film tersebut tidak ada di dalam daftar.
   it('should not throw error if the unliked movie is not in the list', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
